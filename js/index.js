@@ -60,12 +60,34 @@ body.addEventListener('keyup', (event) => {
   event.target.style.background = 'white';
 });
 
-// Make the images change on resize
-
+// Make the images change on window resize
 images = document.querySelectorAll('img');
 
 window.addEventListener('resize', () => {
   images.forEach(img => {
     img.style.width = '50%';
+  });
+});
+
+// Prevent event propogation
+
+const contentSection = document.querySelector('.content-section');
+
+contentSection.addEventListener('click', () => {
+  contentSection.style.background = 'teal';
+});
+
+const textContent = document.querySelector('.text-content');
+
+textContent.addEventListener('click', (event) => {
+  event.target.style.background = 'yellowgreen';
+  event.stopPropagation();
+});
+
+// Stop nav items from refreshing page
+
+navLinks.forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
   });
 });
