@@ -23,12 +23,16 @@ navLinks.forEach(link => {
 const headerImg = document.querySelector('.intro img');
 
 headerImg.addEventListener('mouseenter', (event) => {
-  event.target.style.transform = 'scale(1.2)';
-  event.target.style.transition = 'all 0.3s';
+  // event.target.style.transform = 'scale(1.2)';
+  // event.target.style.transition = 'all 0.3s';
+
+  gsap.to(event.target, { scale: 1.2, duration: 3 });
 });
 
 headerImg.addEventListener('mouseleave', (event) => {
-  event.target.style.transform = 'scale(1)';
+  // event.target.style.transform = 'scale(1)';
+
+  gsap.to(event.target, { scale: 1, duration: 1 });
 });
 
 // Change paragraph text color to pink when clicked
