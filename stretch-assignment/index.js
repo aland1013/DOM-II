@@ -1,10 +1,7 @@
 const blocks = document.querySelectorAll('.block');
-blocks.forEach((block, index, arr) => {
-  block.style.order = index;
+blocks.forEach((block) => {
   block.addEventListener('click', (event) => {
-    event.target.style.order = 0;
-    for (let i = 0; i < index; i++) {
-      arr[i].style.order++;
-    }
+    event.target.remove();
+    document.querySelector('.blocks').insertBefore(event.target, document.querySelector('.block'));
   });
 });
